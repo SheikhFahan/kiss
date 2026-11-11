@@ -1,4 +1,4 @@
-# kiss — toggle "never sleep" on macOS so the machine (and your AI agent)
+# kiss (Kernel Insomnia, Sleep Suspended) — toggle "never sleep" on macOS so the machine (and your AI agent)
 # keeps running with the lid closed. Run once to stay awake, again to allow sleep.
 # While it's on, ~/.kiss/lidwatch.sh turns the screen off when you close the lid.
 kiss() {
