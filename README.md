@@ -56,7 +56,7 @@ $ kiss
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠽⠿⠿⠷⠶⢤⣤⣴⣿⣦⣶⣾⣿⣷⣾⣻⣿⠝⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠛⠛⠛⠛⠛⠊⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 Password:
-   see you on the other side
+   gonna work with a closed lid <3
 ```
 
 Close the lid. The agent keeps going.
@@ -66,7 +66,7 @@ Done? Kiss it goodnight:
 ```console
 $ kiss
 Password:
-   thanks for the rest
+   gonna be sleeping when you close the lid
 ```
 
 The lips print every time, in red. Left out above to save scrolling.
