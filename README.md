@@ -41,17 +41,17 @@ macOS only. Plain zsh, nothing to install first.
 ## 01 · install
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/SheikhFahan/kiss/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/SheikhFahan/kiss/main/install.sh | bash && exec zsh
 ```
 
-Open a new terminal, then type `kiss`. Update: run the same line again.
+Then type `kiss`. The `exec zsh` at the end reloads your terminal so `kiss` works right away, no new window needed. Update: run the same line again.
 
 From a clone instead:
 
 ```sh
 git clone git@github.com:SheikhFahan/kiss.git
 cd kiss
-./install.sh
+./install.sh && exec zsh
 ```
 
 ## 02 · use
@@ -112,10 +112,10 @@ A check every 2 seconds costs about 10 ms of work, far less battery than a glowi
 ## 05 · uninstall
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/SheikhFahan/kiss/main/uninstall.sh | bash
+curl -fsSL https://raw.githubusercontent.com/SheikhFahan/kiss/main/uninstall.sh | bash && exec zsh
 ```
 
-Turns sleep back on if it's still off, stops the lid watcher, removes the kiss lines from `~/.zshrc` (backup saved as `~/.zshrc.kiss-backup`), and deletes `~/.kiss`. From a clone: `./uninstall.sh`.
+Turns sleep back on if it's still off, stops the lid watcher, removes the kiss lines from `~/.zshrc` (backup saved as `~/.zshrc.kiss-backup`), and deletes `~/.kiss`. From a clone: `./uninstall.sh && exec zsh`.
 
 ## !! · don't bag it awake
 

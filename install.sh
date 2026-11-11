@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Installs kiss — keeps your Mac awake with the lid closed.
 #
-#   curl -fsSL https://raw.githubusercontent.com/SheikhFahan/kiss/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/SheikhFahan/kiss/main/install.sh | bash && exec zsh
 #
 # Run from a local clone, it copies the files next to it; piped from curl, it downloads them.
 # Safe to run more than once.
@@ -42,4 +42,5 @@ else
 fi
 
 echo
-echo "Done. Open a new terminal, then type: kiss"
+echo "Done. Type: kiss"
+echo "(kiss not found? Run: exec zsh)"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Uninstalls kiss: lets your Mac sleep again, removes kiss from your zshrc, deletes ~/.kiss.
 #
-#   curl -fsSL https://raw.githubusercontent.com/SheikhFahan/kiss/main/uninstall.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/SheikhFahan/kiss/main/uninstall.sh | bash && exec zsh
 #
 # Safe to run more than once.
 set -euo pipefail
@@ -34,4 +34,5 @@ if [ -d "$DEST" ]; then
 fi
 
 echo
-echo "kiss is gone. Open a new terminal to finish."
+echo "kiss is gone."
+echo "(kiss still answering in this window? Run: exec zsh)"
