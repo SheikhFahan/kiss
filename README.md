@@ -1,24 +1,106 @@
-# kiss
+```text
+╭───╮╭───╮╭───╮╭───╮
+│ k ││ i ││ s ││ s │
+╰───╯╰───╯╰───╯╰───╯
+```
 
-Keeps your Mac awake, even with the lid closed, so long-running jobs (like an AI agent) keep going. Type `kiss` once to stay awake, and again to let it sleep.
+**lid closed · Mac awake · agent still going**
 
-## Install
+Keep your Mac awake with the lid shut, so long jobs like an AI agent keep running. `kiss` once to stay up, `kiss` again to let it sleep.
+
+```text
+  lid closed  ──▶  Mac sleeps  ──▶  agent dies mid-task. classic.
+
+  $ kiss
+
+  lid closed  ──▶  Mac awake   ──▶  agent keeps going   ◀ you are here
+```
+
+macOS only. Plain zsh, nothing to install first.
+
+## 01 · install
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/SheikhFahan/kiss/main/install.sh | bash
 ```
 
-Then open a new terminal and type `kiss`. It asks for your password, because changing sleep settings needs `sudo`.
+Open a new terminal, then type `kiss`. Update: run the same line again.
 
-## Use
+From a clone instead:
 
 ```sh
-kiss   # → "see you on the other side"   (sleep disabled)
-kiss   # → "thanks for the rest"         (sleep enabled again)
+git clone git@github.com:SheikhFahan/kiss.git
+cd kiss
+./install.sh
 ```
 
-**Heads up:** while sleep is disabled, a closed laptop keeps running at full power. It can get hot in a bag and will drain the battery. Run `kiss` again when you're done.
+## 02 · use
 
-## Uninstall
+```console
+$ kiss
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣾⣿⡽⠟⠛⠻⣶⣄⠀⢀⣐⣒⣒⣶⣴⣾⡿⢷⣶⣽⡢⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡾⣿⣿⢿⠋⠀⠀⠀⠀⠀⠉⠛⠓⠒⠛⠚⠛⠉⣿⠀⠀⣧⡏⠻⣷⣽⡦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣻⡾⠋⣇⢸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠉⠀⠀⢸⠙⠻⣿⣷⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣠⣶⣿⠋⠈⠀⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠈⡿⣷⣽⣇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢀⣞⡿⠟⣟⠀⠀⠀⠀⠀⠀⠀⠀⠸⡆⠀⠀⠀⣆⠀⠀⡀⢸⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠈⠻⣯⡳⣄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢀⣽⠟⠁⠀⠘⠃⠀⠀⠀⠀⢰⡀⠀⠀⢹⡀⠀⠀⢸⡄⢀⣇⡾⣠⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣾⣅⠀⠀⠀⠀
+⣀⣀⣠⡴⠿⣅⠐⢦⡀⠀⠀⠀⠲⣄⠀⠀⣙⣦⣶⣾⣻⣶⣶⠾⠿⠾⢿⣿⣿⣻⢷⣢⢤⣀⠀⠀⠀⠀⠀⠀⠀⡀⠀⣴⠛⣿⣷⣄⡀⠀
+⠹⠿⢿⣷⣦⣼⣷⣤⣻⣶⣤⣀⣀⣬⣷⡯⠷⠾⢿⣿⣭⣄⣀⣀⣀⣀⣀⣤⣭⡿⠿⢾⣿⣿⣿⣦⣤⣤⣤⣶⢾⡷⣿⣷⣾⣷⣿⡿⠿⠟
+⠀⠀⠘⣿⡝⣿⡿⢻⣿⡿⢩⡞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠰⡄⠀⠀⠀⠀⠘⢦⠹⣮⢷⠹⣷⣿⠀⠀⠀
+⠀⠀⠀⠙⣷⣿⠁⡞⣾⠀⡞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⡇⠀⠀⠀⠀⠀⢸⡆⢸⢸⣦⡟⠁⠀⠀⠀
+⠀⠀⠀⠀⠈⢻⣄⡏⣿⠀⡇⠀⠀⠀⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀⢐⣧⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⣼⡇⠘⣼⠏⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠙⠻⣧⣧⢣⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠸⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⢹⣠⡾⠃⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢿⣧⡘⣆⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠀⠀⣴⣷⣿⡋⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⠷⣤⣀⣹⣄⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⠀⡆⠀⠀⣀⣴⣧⣴⣟⠯⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠽⠿⠿⠷⠶⢤⣤⣴⣿⣦⣶⣾⣿⣷⣾⣻⣿⠝⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠛⠛⠛⠛⠛⠊⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+Password:
+   see you on the other side
+```
 
-Run `kiss` first if sleep is still disabled. Then delete `~/.kiss` and remove the `# kiss` lines from `~/.zshrc`.
+Close the lid. The agent keeps going.
+
+Done? Kiss it goodnight:
+
+```console
+$ kiss
+Password:
+   thanks for the rest
+```
+
+The lips print every time, in red. Left out above to save scrolling.
+
+## 03 · how it works
+
+```text
+          ┌─ sleep allowed ─▶ sudo pmset -a disablesleep 1 ─▶ awake, lid or not
+  kiss ───┤
+          └─ sleep blocked ─▶ sudo pmset -a disablesleep 0 ─▶ sleeps normally again
+```
+
+One macOS power setting, flipped for battery and charger alike. Nothing runs in the background. Files live in `~/.kiss`, and one line in `~/.zshrc` loads them.
+
+Check which side you're on: `pmset -g | grep SleepDisabled`. `1` means staying awake.
+
+## !! · don't bag it awake
+
+```text
+  ╔════════════════════════════════════════════════════╗
+  ║ !! DON'T BAG IT AWAKE                              ║
+  ║                                                    ║
+  ║ with sleep off, a closed Mac runs at full power.   ║
+  ║ in a bag it gets hot and drains the battery.       ║
+  ║                                                    ║
+  ║ done?  kiss  again.                                ║
+  ╚════════════════════════════════════════════════════╝
+```
+
+## ?? · notes
+
+- Asks for your password each time, because the setting needs `sudo`.
+- Uninstall: run `kiss` if sleep is still off, then `rm -rf ~/.kiss` and delete the `# kiss` lines from `~/.zshrc`.
+
+---
+
+<sub>no agents were put to sleep in the making of this kiss.</sub>
