@@ -139,4 +139,4 @@ Turns sleep back on if it's still off, stops the lid watcher, removes the kiss l
 
 ---
 
-<sub>no agents were put to sleep in the making of this kiss.</sub>
+<sub>[MIT](LICENSE) · no agents were put to sleep in the making of this kiss.</sub>
