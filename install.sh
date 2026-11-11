@@ -23,10 +23,10 @@ mkdir -p "$DEST"
 SRC="${BASH_SOURCE[0]:-}"
 if [ -f "$SRC" ] && [ -f "$(dirname "$SRC")/kiss.zsh" ]; then
   DIR="$(cd "$(dirname "$SRC")" && pwd)"
-  cp "$DIR/kiss.zsh" "$DIR/lips.txt" "$DEST/"
+  cp "$DIR/kiss.zsh" "$DIR/lips.txt" "$DIR/lidwatch.sh" "$DEST/"
   echo "✓ copied kiss to $DEST"
 else
-  for f in kiss.zsh lips.txt; do
+  for f in kiss.zsh lips.txt lidwatch.sh; do
     curl -fsSL "$BASE/$f" -o "$DEST/$f.tmp"
     mv "$DEST/$f.tmp" "$DEST/$f"
   done

@@ -26,6 +26,8 @@ if [ -f "$ZSHRC" ] && grep -qxF -e "$LINE" -e "$COMMENT" "$ZSHRC"; then
   echo "✓ removed kiss from $ZSHRC (backup: $ZSHRC.kiss-backup)"
 fi
 
+pkill -f "^/bin/sh $DEST/lidwatch.sh\$" && echo "✓ stopped the lid watcher" || true
+
 if [ -d "$DEST" ]; then
   rm -rf "$DEST"
   echo "✓ deleted $DEST"

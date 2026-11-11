@@ -82,17 +82,40 @@ The lips up top print first, in red, every time.
           └─ sleep blocked ─▶ sudo pmset -a disablesleep 0 ─▶ sleeps normally again
 ```
 
-One macOS power setting, flipped for battery and charger alike. Nothing runs in the background. Files live in `~/.kiss`, and one line in `~/.zshrc` loads them.
+One macOS power setting, flipped for battery and charger alike. Files live in `~/.kiss`, and one line in `~/.zshrc` loads them.
 
 Check which side you're on: `pmset -g | grep SleepDisabled`. `1` means staying awake.
 
-## 04 · uninstall
+## 04 · screen off when the lid closes
+
+With sleep disabled, macOS can leave the built-in screen lit after you close the lid, burning battery on nothing. So while kiss is on, a tiny helper (`~/.kiss/lidwatch.sh`) watches the lid and turns the screen off the moment it closes.
+
+```text
+  kiss on ──▶ lidwatch, every 2 s: lid closed? kiss still on?
+                 │
+                 ├─ lid just closed ──▶ pmset displaysleepnow ──▶ screen off, agent still going
+                 │
+                 └─ kiss turned off ──▶ lidwatch exits on its own
+```
+
+Each check is one read of the Mac's power manager (`ioreg`), about 10 ms, and that one read answers both questions. Open the lid and press a key to get the screen back.
+
+**why check every 2 s instead of listening for the lid?**
+
+macOS does announce when the lid opens or closes, but only to compiled programs (Swift or C, through IOKit). That leaves two options, both worse:
+
+- **compile it on your Mac.** Swift comes with Apple's developer tools, and most Macs don't have them installed.
+- **ship a prebuilt binary.** That's a file nobody can read before `curl | bash` runs it. It needs builds for both Apple Silicon and Intel, and macOS blocks it if it's downloaded through a browser.
+
+A check every 2 seconds costs about 10 ms of work, far less battery than a glowing screen, and keeps kiss plain shell you can read in a minute.
+
+## 05 · uninstall
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/SheikhFahan/kiss/main/uninstall.sh | bash
 ```
 
-Turns sleep back on if it's still off, removes the kiss lines from `~/.zshrc` (backup saved as `~/.zshrc.kiss-backup`), and deletes `~/.kiss`. From a clone: `./uninstall.sh`.
+Turns sleep back on if it's still off, stops the lid watcher, removes the kiss lines from `~/.zshrc` (backup saved as `~/.zshrc.kiss-backup`), and deletes `~/.kiss`. From a clone: `./uninstall.sh`.
 
 ## !! · don't bag it awake
 
@@ -110,6 +133,7 @@ Turns sleep back on if it's still off, removes the kiss lines from `~/.zshrc` (b
 ## ?? · notes
 
 - Asks for your password each time, because the setting needs `sudo`.
+- External monitor with the lid closed: it goes dark too when you close the lid. Move the mouse to wake it. kiss won't turn it off again until the next close.
 
 ---
 
